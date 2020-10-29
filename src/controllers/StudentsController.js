@@ -31,12 +31,12 @@ module.exports = {
 
         if (checkBoolean.isBusy) {
 
-            const nowIsFalse = await Student.update({ isBusy: false }, { where: { id: studentId }})           
+            await Student.update({ isBusy: false }, { where: { id: studentId }})           
         
             return res.status(200).json({ success: 'Now is false' })
         }
 
-        const nowIsTrue = await Student.update({ isBusy: true }, { where: { id: studentId }})
+        await Student.update({ isBusy: true }, { where: { id: studentId }})
 
         return res.status(200).json({ success: 'Now is true' })
     },

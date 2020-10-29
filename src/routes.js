@@ -48,4 +48,14 @@ routes.post('/associate/student/:studentId/subject/:subjectId', async (req, res)
     return res.status(200).json(insert)
 })
 
+routes.post('/professor', async (req, res) => {
+
+    const { name } = req.body
+
+    const insert = await Professor.create({ name })
+    
+    return res.status(200).json(insert)
+})
+
+
 module.exports = routes
