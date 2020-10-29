@@ -8,20 +8,12 @@ const StudentsController = require('./controllers/StudentsController')
 
 const routes = Router()
 
-routes.get('/professors', async (req, res) => {
-
-    const { name } = req.body
-
-    const insert = await Professor.create({
-        name
-    })
-
-    return res.json(insert)
-})
-
 routes.get('/students/subject/:subjectId', StudentsController.index)
 routes.post('/students/:studentId', StudentsController.changeState)
-routes.get('/students/:name', StudentsController.search)
+routes.get('/students/:name/subject/:subjectId', StudentsController.search)
+routes.get('/students/subject/:subjectId/count',StudentsController.countAbsent)
+routes.get('/students/subject/:subjectId/total', StudentsController.countTotal)
+routes.post('/students/:studentId/reset', StudentsController.resetState)
 
 
 routes.get('/subjects',  SubjectsControlles.index)

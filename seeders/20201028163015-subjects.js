@@ -5,7 +5,7 @@ module.exports = {
      return await queryInterface.bulkInsert('subjects', [
          {
             id: 1,
-            name: 'Cálculo 1',
+            name: 'Cálculo I',
             createdAt: new Date(),
             updatedAt: new Date()
          },
